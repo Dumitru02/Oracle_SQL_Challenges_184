@@ -498,7 +498,7 @@ WHERE EXISTS (SELECT * FROM CUSTOMER b WHERE  a.name  < b.cust_name);
 Return customer_id, cust_name, city, grade, salesman_id.
 */
 SELECT * FROM customer 
-WHERE grade > ANY (SELECT grade FROM CUSTOMER WHERE  city < 'New York');
+WHERE grade > ALL (SELECT grade FROM CUSTOMER WHERE  city < 'New York');
 
 /*
 23. From the following table write a SQL query to find all those orders whose order amount exceeds at least one of the orders placed on September 10th 2012. 
