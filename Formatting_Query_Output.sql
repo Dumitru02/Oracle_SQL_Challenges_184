@@ -11,8 +11,12 @@ Sample table: salesman
         5007 | Paul Adam  | Rome     |       0.13
         5003 | Lauson Hen | San Jose |       0.12
 */
-SELECT salesman_id,name,city,'%',commission*100 
+SELECT salesman_id,
+       name,
+       city,
+       (commission * 100) || '%' AS commission
 FROM salesman;
+
 
 /*
 2. From the following table, write a SQL query to find the number of orders booked for each day. Return the result in a format like "For 2001-10-10 there are 15 orders".". 
@@ -166,6 +170,7 @@ SELECT ord_date, SUM(purch_amt), SUM(purch_amt)*.15
 FROM orders 
 GROUP BY ord_date 
 ORDER BY ord_date;
+
 
 
 
