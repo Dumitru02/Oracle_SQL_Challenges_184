@@ -27,9 +27,9 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 70004       110.5       2012-08-17  3009         5003
 70007       948.5       2012-09-10  3005         5002
 */
-SELECT ' For',ord_date,',there are', COUNT (ord_no),'orders.' 
-FROM orders 
-GROUP BY ord_date;
+select  'for  ' ||  ord_date || '  there are  ' || count(purch_amt) || '  orders  ' as result 
+from orders 
+group by ord_date
 
 /*
 3. From the following table, write a SQL query to find all the orders. Sort the result-set in ascending order by ord_no. Return all fields.  
@@ -166,6 +166,7 @@ SELECT ord_date, SUM(purch_amt), SUM(purch_amt)*.15
 FROM orders 
 GROUP BY ord_date 
 ORDER BY ord_date;
+
 
 
 
