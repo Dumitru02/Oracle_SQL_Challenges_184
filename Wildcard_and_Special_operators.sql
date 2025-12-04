@@ -104,8 +104,9 @@ Sample table: salesman
         5006 | Mc Lyon    | Paris    |       0.14
         5007 | Paul Adam  | Rome     |       0.13
 */
-SELECT * FROM salesman 
-WHERE name BETWEEN 'A' and 'L';
+SELECT salesman_id, name, city, commission
+FROM salesman
+WHERE name >= 'B' AND name < 'L';
 
 /*
 8. From the following table, write a SQL query to find the details of all salespeople except those whose names begin with any letter between 'A' and 'M'. Return salesman_id, name, city, commission.  
@@ -214,6 +215,7 @@ Sample table: emp_details
    444527 Joseph          Dosni                   47
 */
 SELECT * FROM emp_details WHERE emp_lname LIKE 'D%';
+
 
 
 
