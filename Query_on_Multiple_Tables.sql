@@ -170,12 +170,15 @@ Sample table: customer
         3003 | Jozy Altidor   | Moscow     |   200 |        5007
         3001 | Brad Guzan     | London     |       |        5005
 */
-SELECT customer.cust_name AS "Customer", customer.grade AS "Grade", orders.ord_no AS "Order No."
-FROM orders, salesman, customer
-WHERE orders.customer_id = customer.customer_id 
-AND orders.salesman_id = salesman.salesman_id 
-AND salesman.city IS NOT NULL 
-AND customer.grade IS NOT NULL;
+SELECT 
+    c.cust_name AS "Customer",
+    c.grade     AS "Grade"
+FROM customer c
+JOIN salesman s 
+    ON c.salesman_id = s.salesman_id
+WHERE c.grade IS NOT NULL 
+  AND s.city IS NOT NULL;
+
 
 /*
 6. From the following table, write a SQL query to find those customers who are served by a salesperson and the salesperson earns commission in the range of 12% to 14% (Begin and end values are included.).
@@ -284,6 +287,7 @@ ord_no      purch_amt   ord_date    customer_id  salesman_id
 SELECT *FROM customer a, orders b
 WHERE a.customer_id = b.customer_id 
 AND b.ord_date = '2012-10-05';
+
 
 
 
