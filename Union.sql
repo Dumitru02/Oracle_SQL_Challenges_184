@@ -51,9 +51,9 @@ customer_id |   cust_name    |    city    | grade | salesman_id
         3008 | Julian Green   | London     |   300 |        5002
         3004 | Fabian Johnson | Paris      |   300 |        5006
 */
-SELECT salesman_id, city FROM customer 
-UNION 
-(SELECT salesman_id, city FROM salesman)
+select distinct salesman_id, city 
+from salesman 
+
 
 /*
 3. From the following tables, write a SQL query to find all those salespeople and customers who are involved in the inventory management system.
@@ -265,6 +265,7 @@ UNION
 (SELECT salesman_id as ID, name as NAME FROM salesman a 
 WHERE 1 < (SELECT COUNT (*) FROM orders b WHERE  a.salesman_id = b.salesman_id)) 
 ORDER BY 2
+
 
 
 
