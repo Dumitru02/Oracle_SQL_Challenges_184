@@ -377,9 +377,9 @@ Sample table: item_mast
     105 Monitor                         5000.00         11
     106 DVD drive                        900.00         12
 */
-SELECT AVG(pro_price) AS "Average Price", pro_com AS "Company ID" 
-FROM item_mast 
-GROUP BY pro_com;
+select count(pro_name)
+from item_mast 
+where pro_price >= 350;
 
 /*
 23. From the following table, write a SQL query to compute the average price for unique companies. Return average price and company id.
